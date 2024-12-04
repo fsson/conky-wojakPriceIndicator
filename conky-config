@@ -1,0 +1,56 @@
+conky.config = {
+
+	-- Conky settings #
+		background = true,
+		update_interval = 1,
+		double_buffer = true,
+		no_buffers = true,
+	
+	-- Window specifications #
+		own_window = true,
+		own_window_type = 'desktop',
+		draw_blended = false,
+		own_window_transparent = true,
+		own_window_argb_visual = true,
+
+	-- Width of Conky window #
+		minimum_width = 300,
+		minimum_height = 300,
+	
+	-- Alignment #
+		alignment = 'top_left',
+		gap_x = 50,
+		gap_y = 10,
+	
+	-- Graphics settings #
+		draw_shades = false,
+		draw_outline = false,
+		draw_borders = false,
+		draw_graph_borders = false,
+	
+	-- Text settings #
+		use_xft = true,
+		xftalpha = 0,
+		font = 'Forque:size=10',
+	
+		override_utf8_locale = false,
+		imlib_cache_size = 0,
+	
+	-- Color scheme #
+		default_color = '#e0e0e0',
+
+	};
+	
+	conky.text = [[
+	${execi 60 ~/conky-wojakPriceIndicator/update_mktdata.sh}\
+	\
+	${execpi 0 ~/conky-wojakPriceIndicator/conditional.sh}\
+	${voffset -50}\
+	${goto 155}${font DejaVu Sans Mono:size=16}${execi 0 echo "$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.usd)/1" | bc | awk '{printf "$%'\''d\n", $0}'}
+	${voffset -20}\
+	${goto 155}_________
+	${goto 155}${font DejaVu Sans Mono:size=11}24h:${if_match ${execi 0 cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.usd_24h_change} < 0}${color red}${execi 0 echo "$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.usd_24h_change)" | awk '{printf "%.2f%%", $1}'}${else}${color green}${execi 0 echo "$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.usd_24h_change)" | awk '{printf "%+.2f%%", $1}'}${endif}
+	${goto 155}${color}24h Vol:${execi 0 jq -r .bitcoin.usd_24h_vol ~/conky-wojakPriceIndicator/mktdata.json | awk '{printf "%.0f\n", $1 / 1000000000}' | sed "s/^/\$/"}B
+	${goto 155}Mkt Cap:${execi 0 jq -r .bitcoin.usd_market_cap ~/conky-wojakPriceIndicator/mktdata.json | awk '{printf "%.1f\n", $1 / 1000000000000}' | sed "s/^/\$/"}T
+	${goto 155}${font DejaVu Sans Mono:size=9}${color #989898}Updated ${execi 0 date -d @$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.last_updated_at) '+%H:%M'}
+	]];
