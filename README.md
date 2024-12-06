@@ -11,12 +11,24 @@ Don't be like Wojak.
 
 ## How to install
 Since this is a conky theme, it requires [conky](https://github.com/brndnmtthws/conky) to be installed. If you don't have conky already you can install it using
-```
+```bash
+# Debian based distribution:
 sudo apt install conky-all
+
+# Arch based distribution:
+sudo pacman -S conky
+```
+You may or may not also have to install jq (depending on your linux distribution). In case you need to, it can be installed using
+```bash
+# Debian based distribution:
+sudo apt install jq
+
+# Arch based distribution:
+sudo pacman -S jq
 ```
 
 Clone the repo to your home directory, navigate to the folder and run
-```
+```bash
 bash install.sh
 ```
 
