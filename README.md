@@ -27,9 +27,12 @@ sudo apt install jq
 sudo pacman -S jq
 ```
 
-Clone the repo to your home directory, navigate to the folder and run
+Clone the repo to your home directory, navigate to the folder and run the install script
 ```bash
-bash install.sh
+cd ~/ # to make sure that you are in your home folder
+git clone https://github.com/fsson/conky-wojakPriceIndicator
+cd conky-wojakPriceIndicator/
+bash install.sh # this will replace any existing conky config file
 ```
 
 Run conky and your very own Wojak should appear in the upper left corner of your desktop!
