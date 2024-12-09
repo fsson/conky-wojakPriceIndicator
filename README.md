@@ -11,13 +11,28 @@ Don't be like Wojak.
 
 ## How to install
 Since this is a conky theme, it requires [conky](https://github.com/brndnmtthws/conky) to be installed. If you don't have conky already you can install it using
-```
+```bash
+# Debian based distribution:
 sudo apt install conky-all
+
+# Arch based distribution:
+sudo pacman -S conky
+```
+You may or may not also have to install jq (depending on your linux distribution). In case you need to, it can be installed using
+```bash
+# Debian based distribution:
+sudo apt install jq
+
+# Arch based distribution:
+sudo pacman -S jq
 ```
 
-Clone the repo to your home directory, navigate to the folder and run
-```
-bash install.sh
+Clone the repo to your home directory, navigate to the folder and run the install script
+```bash
+cd ~/ # to make sure that you are in your home folder
+git clone https://github.com/fsson/conky-wojakPriceIndicator
+cd conky-wojakPriceIndicator/
+bash install.sh # this will replace any existing conky config file
 ```
 
 Run conky and your very own Wojak should appear in the upper left corner of your desktop!
