@@ -33,7 +33,7 @@ conky.config = {
 		xftalpha = 0,
 		font = 'Forque:size=10',
 	
-		override_utf8_locale = false,
+		override_utf8_locale = true,
 		imlib_cache_size = 0,
 	
 	-- Color scheme #
