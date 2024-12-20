@@ -2,6 +2,9 @@
 
 CHANGE=$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.usd_24h_change)
 
+copium_boost=`cat ~/conky-wojakPriceIndicator/copium_scripts/copium_storage.txt`
+CHANGE=`echo "$CHANGE + $copium_boost" | bc -l`
+
 if (( $(echo "$CHANGE > -0.75 && $CHANGE < 0.75" | bc -l) )); then
     echo "\${image ~/conky-wojakPriceIndicator/img/wojak_0.png -p 0,65 -s 140x140}\${voffset 120}"
 

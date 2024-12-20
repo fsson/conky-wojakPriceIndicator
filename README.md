@@ -37,6 +37,26 @@ bash install.sh # this will replace any existing conky config file
 
 Run conky and your very own Wojak should appear in the upper left corner of your desktop!
 
+## Copum/Hopium infusion (experimental)
+It is possible to give Wojak a temporary copium or hopium boost, where hopium is a bit stronger and longer lasting. At present, interaction with wojak has to be done through the terminal. To add 'hopium.sh' and 'copium.sh' to PATH, run (will only work in present shell, add them to shell config file to make it lasting):
+```bash
+# If you are using Bash:
+PATH=$PATH:$HOME/conky-wojakPriceIndicator/copium_scripts/
+
+# If you are using Fish:
+fish_add_path $HOME/conky-wojakPriceIndicator/copium_scripts/
+```
+
+Then simply give Wojak 5 cc's of:
+```bash
+copium.sh
+```
+
+Or why not 20 cc's of:
+```bash
+hopium.sh
+```
+
 ## Make your own configurations
 This theme uses the [CoinGecko API](https://docs.coingecko.com/reference/simple-price) to fetch data. If you are so inclined, changing to another cryptocurrency should be as easy as changing `ids=bitcoin` in the API link in `update_mktdata.sh`.
 
