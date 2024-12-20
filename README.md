@@ -37,7 +37,7 @@ bash install.sh # this will replace any existing conky config file
 
 Run conky and your very own Wojak should appear in the upper left corner of your desktop!
 
-## Copum/Hopium infusion (experimental)
+### Copum/Hopium infusion (experimental)
 It is possible to give Wojak a temporary copium or hopium boost, where hopium is a bit stronger and longer lasting. At present, interaction with wojak has to be done through the terminal. To add 'hopium.sh' and 'copium.sh' to PATH, run (will only work in present shell, add them to shell config file to make it lasting):
 ```bash
 # If you are using Bash:
