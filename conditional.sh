@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHANGE=$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .bitcoin.usd_24h_change)
+CHANGE=$(cat ~/conky-wojakPriceIndicator/mktdata.json | jq -r .[].usd_24h_change)
 
 copium_boost=`cat ~/conky-wojakPriceIndicator/copium_scripts/copium_storage.txt`
 CHANGE=`echo "$CHANGE + $copium_boost" | bc -l`
